@@ -1,38 +1,47 @@
+//
+//  SettingsViewController.swift
+//  ComprasUSA
+//
+//  Created by Fullbar 3 on 19/12/21.
+//
+
 import UIKit
 
-final class AjustesViewController: UIViewController {
+class SettingsViewController: UIViewController {
 
-    @IBOutlet weak var TextFieldDolar: UITextField!
-    @IBOutlet weak var TextFieldIOF: UITextField!
+
+    @IBOutlet weak var dolarTextField: UITextField!
+    
+    @IBOutlet weak var iofTextField: UITextField!
+    let ud = UserDefaults.standard
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
         view.endEditing(true)
     }
+
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setupUI()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadCotacoes()
     }
     
-    private func loadCotacoes(){
-        let bundle = Bundle(for: type(of: self))
-        guard let url = bundle.url(forResource: "Cotacoes", withExtension: "json"),
-        let data = try? Data(contentsOf: url)
-            else {return}
+  
+    
+    private func setupUI() {
 
-        do {
-            let jsonDecoder = JSONDecoder()
-            jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
-            let cotacoes = try jsonDecoder.decode(Cotacoes.self, from: data)
-            TextFieldDolar.text = cotacoes.Dolar
-            TextFieldIOF.text = cotacoes.IOF
-        }catch{
-            print(error)
-        }
+        let dolar = ud.string(forKey: "dolar")
+        dolarTextField.text = dolar
+        
+        let iof = ud.string(forKey: "iof")
+        iofTextField.text = iof
     }
-    
-    @IBAction func AddState(_ sender: UIButton){
+
+    @IBAction func addState(_ sender: UIButton) {
         
         let alert = UIAlertController(title: "Adicionar Estado", message: "", preferredStyle: .alert)
         alert.addTextField { (textField) in
@@ -54,3 +63,7 @@ final class AjustesViewController: UIViewController {
     }
     
 }
+
+
+
+
