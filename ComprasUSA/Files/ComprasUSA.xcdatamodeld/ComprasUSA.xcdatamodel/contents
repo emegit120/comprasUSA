@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="18154" systemVersion="20G314" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Estado" representedClassName="Estado" syncable="YES" codeGenerationType="class">
+        <attribute name="dolar" optional="YES" attributeType="Double" minValueString="0" maxValueString="50" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="estado" optional="YES" attributeType="String"/>
+        <attribute name="imposto" optional="YES" attributeType="Double" minValueString="0" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="iof" optional="YES" attributeType="Double" minValueString="0" maxValueString="100" defaultValueString="0.0" usesScalarValueType="YES"/>
+    </entity>
+    <elements>
+        <element name="Estado" positionX="-63" positionY="-18" width="128" height="89"/>
+    </elements>
+</model>
